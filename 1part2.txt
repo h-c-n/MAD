@@ -1,0 +1,48 @@
+package com.example.logcred;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
+
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.logcred.databinding.ActivityMainBinding;
+
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+    String default_username="harshahcn";
+    String default_password="hcn@";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+
+
+
+    public void validatelogin(View view) {
+            EditText username = (EditText) findViewById(R.id.uname);
+            EditText password = (EditText) findViewById(R.id.pass);
+            String user_name = username.getText().toString();
+            String pass= password.getText().toString();
+            String message = "invalid credentials";
+            if (user_name.equals(default_username) && pass.equals(default_password))
+                message = "login successful";
+            Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+        }
+}
